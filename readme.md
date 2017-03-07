@@ -12,6 +12,13 @@ for the user.
 
 # Scraping #
 
+## Dependencies ##
+
+Right now the only dependency required for the scraper is BeautifulSoup4, however
+your installation of python needs to have sqlite3 support.
+
+## Use ##
+
 To use the scraping kit included in this repository, go to the [Class Schedule search](https://www.everettcc.edu/classes/)
 and search the quarter you want for classes in all departments, this will return
 a list of all offered classes. Save this page and then use it with catalog2csv.py.
