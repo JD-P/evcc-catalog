@@ -1,6 +1,7 @@
 from django import forms
 class SimpleSearchForm(forms.Form):
-    multisearch = forms.CharField(max_length=5096, required=False)
+    multisearch = forms.CharField(label="Search (by: Title, Description, Instructor or Location)",
+                                  max_length=5096, required=False)
 
     # Search by days of week
     

@@ -1,0 +1,46 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=text] {
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  width:30em;
+}
+
+.checkbox_sets {
+  display: flex;
+  flex-direction: row;
+}
+
+.dow {
+  border: 1px black solid;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.conditions {
+  border: 1px black solid;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.4em
+}
+
+.credit_requirements {
+  border: 1px black solid;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.4em;
+}
+
+.submit_button {
+  margin-top: .75em;
+  height: 3em;
+  width: 7.5em;
+}

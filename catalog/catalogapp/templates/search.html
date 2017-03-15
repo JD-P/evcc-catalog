@@ -1,13 +1,17 @@
 <html>
   <head>
     <title> Unofficial EvCC Class Schedule Search Engine </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "search.css" %}">
     <meta charset="UTF-8">
   </head>
   <body>
     <form action="/courses/", method="get">
+      <p>{{ form.multisearch.label }}</p>
       <div class="search_bar">
 	{{ form.multisearch }}
       </div>
+      <div class="checkbox_sets">
       <div class="dow">
 	{{ form.monday.label }} {{ form.monday }}
 	{{ form.tuesday.label }} {{ form.tuesday }}
@@ -35,8 +39,9 @@
 	{{ form.q.label }} {{ form.q }}
 	{{ form.te.label }} {{ form.te }}
 	{{ form.d.label }} {{ form.d }}
-	</div>
-      <input type="submit" value="Submit" />
+      </div>
+      </div>
+      <input class="submit_button" type="submit" value="Submit" />
     </form>
   </body>
 </html>
