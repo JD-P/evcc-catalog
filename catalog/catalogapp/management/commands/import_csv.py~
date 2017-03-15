@@ -1,0 +1,8 @@
+from django.core.management.base import BaseCommand, CommandError
+from catalogapp import models
+
+import csv
+
+
+
+csv.reader()

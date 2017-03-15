@@ -1,0 +1,3 @@
+from django import forms
+class SimpleSearchForm(forms.Form):
+    multisearch = forms.Chars
