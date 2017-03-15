@@ -1,6 +1,8 @@
 from django import forms
 class SimpleSearchForm(forms.Form):
-    multisearch = forms.CharField(max_length=5096)
+    multisearch = forms.CharField(max_length=5096, required=False)
+
+    # Search by days of week
     
     monday = forms.BooleanField(label="Monday", required=False)
     tuesday = forms.BooleanField(label="Tuesday", required=False)
@@ -8,6 +10,8 @@ class SimpleSearchForm(forms.Form):
     thursday = forms.BooleanField(label="Thursday", required=False)
     friday = forms.BooleanField(label="Friday", required=False)
 
+    # Search by special course conditions
+    
     annual = forms.BooleanField(label="Annual Course", required=False)
     ec = forms.BooleanField(label="Taught At East SnoCo Location",
                             required=False)
@@ -16,6 +20,8 @@ class SimpleSearchForm(forms.Form):
     lc = forms.BooleanField(label="Learning Community", required=False)
     online = forms.BooleanField(label="Online Course", required=False)
     web_enhanced = forms.BooleanField(label="Web Enhanced", required=False)
+
+    # Search by credit requirements fulfilled
     
     aas = forms.BooleanField(label="Satisfies Option II code",
                              required=False)

@@ -5,7 +5,37 @@
   </head>
   <body>
     <form action="/courses/", method="get">
-      {{ form }}
+      <div class="search_bar">
+	{{ form.multisearch }}
+      </div>
+      <div class="dow">
+	{{ form.monday.label }} {{ form.monday }}
+	{{ form.tuesday.label }} {{ form.tuesday }}
+	{{ form.wednesday.label }} {{ form.wednesday }}
+	{{ form.thursday.label }} {{ form.thursday }}
+	{{ form.friday.label }} {{ form.friday }}
+      </div>
+      <div class="conditions">
+	{{ form.annual.label }} {{ form.annual }}
+	{{ form.ec.label }} {{ form.ec }}
+	{{ form.hybrid.label }} {{ form.hybrid }}
+	{{ form.honors.label }} {{ form.honors }}
+	{{ form.lc.label }} {{ form.lc }}
+	{{ form.online.label }} {{ form.online }}
+	{{ form.web_enhanced.label }} {{ form.web_enhanced }}
+      </div>
+      <div class="credit_requirements">
+	{{ form.aas.label }} {{ form.aas }}
+	{{ form.c.label }} {{ form.c }}
+	{{ form.ns.label }} {{ form.ns }}
+	{{ form.h.label }} {{ form.h }}
+	{{ form.hp.label }} {{ form.hp }}
+	{{ form.ss.label }} {{ form.ss }}
+	{{ form.ns_l.label }} {{ form.ns_l }}
+	{{ form.q.label }} {{ form.q }}
+	{{ form.te.label }} {{ form.te }}
+	{{ form.d.label }} {{ form.d }}
+	</div>
       <input type="submit" value="Submit" />
     </form>
   </body>
