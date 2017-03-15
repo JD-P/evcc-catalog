@@ -5,21 +5,16 @@ def simple_search_query(qstring):
     # Search title, description, instructors, location
     if qstring.get("multisearch"):
         search_parameter = qstring.get("multisearch")
-        courses_query = (Q(title__icontains=search_parameter) |
-                         Q(description__icontains=search_parameter) |
-                         Q(location__icontains=search_parameter))
+        courses = Course.objects.filter(
+            Q(title__icontains=search_parameter) |
+            Q(description__icontains=search_parameter) |
+            Q(location__icontains=search_parameter) |
+            Q(instructors__instructor__icontains=search_parameter))
+    else:
         courses = Course.objects
-        ms_courses_results = courses.filter(courses_query)
-        instructors = Instructors.objects
-        instructors = instructors.filter(instructor__icontains=search_parameter)
 
-    # Handle search by day
+    # Search days indicated by user
         
-    day_filters = [(value, qstring.get(value)) for value in ("monday",
-                                                              "tuesday",
-                                                              "wednesday",
-                                                              "thursday",
-                                                              "friday")]
     days_conv = {"monday":"M",
                  "tuesday":"T",
                  "wednesday":"W",
@@ -27,20 +22,12 @@ def simple_search_query(qstring):
                  "friday":"F",
                  "saturday":"Sa",
                  "sunday":"Su"}
-    days = Days.objects
-    for day_filter in day_filters:
-        if day_filter[1]:
-            day_string = days_conv[day_filter[0]]
-            days.filter(day__iexact=day_string)
+    days_list = mk_checkbox_search_list(days_conv, qstring)
+    if days_list:
+        courses = courses.filter(days__day__in=days_list)
 
-    # Look at conditions
-    cond_filters = [(value, qstring.get(value)) for value in ("annual",
-                                                              "ec",
-                                                              "hybrid",
-                                                              "honors",
-                                                              "lc",
-                                                              "online",
-                                                              "web_enhanced")]
+    # Search conditions indicated by user
+        
     cond_conv = {"annual":"A",
                  "ec":"EC",
                  "hybrid":"H",
@@ -48,8 +35,36 @@ def simple_search_query(qstring):
                  "lc":"LC",
                  "online":"OL",
                  "web_enhanced":"WE"}
-    conditions = Conditions.objects
-    for cond_filter in cond_filters:
-        if cond_filter[1]:
-            cond_string = cond_conv[cond_filter[0]]
-            conditions.filter(condition__iexact=cond_string)
+    cond_list = mk_checkbox_search_list(cond_conv, qstring)
+    if cond_list:
+        courses = courses.filter(conditions__condition__in=cond_list)
+
+    # Search credit requirements indicated by user
+        
+    credit_conv = {"aas":"AAS",
+                   "c":"C",
+                   "ns":"NS",
+                   "h":"H",
+                   "hp":"HP",
+                   "ss":"SS",
+                   "ns_l":"NS-L",
+                   "q":"Q",
+                   "te":"TE",
+                   "d":"D"}
+    credit_list = mk_checkbox_search_list(credit_conv, qstring)
+    if credit_list:
+        courses = courses.filter(requirements__requirement__in=credit_list)
+
+    return courses
+        
+def mk_checkbox_search_list(checkbox_conv_dict, qstring):
+    """Make a list of values which have been indicated to search for in a set of
+    checkboxes."""
+    checkbox_names = list(checkbox_conv_dict.keys())
+    check_filters = [(value, qstring.get(value)) for value in checkbox_names]
+    search_list = []
+    for check_filter in check_filters:
+        if check_filter[1]:
+            search_list.append(checkbox_conv_dict[check_filter[0]])
+    return search_list
+

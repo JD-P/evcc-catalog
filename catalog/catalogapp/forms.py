@@ -25,6 +25,8 @@ class SimpleSearchForm(forms.Form):
                             required=False)
     h = forms.BooleanField(label="Satisfies Humanities Requirement",
                            required=False)
+    hp = forms.BooleanField(label="Satisfies Humanities Performance Requirement",
+                            required=False)
     ss = forms.BooleanField(label="Satisfies Social Sciences Requirement",
                             required=False)
     ns_l = forms.BooleanField(label="Satisfies Natural Science Lab Requirement",
