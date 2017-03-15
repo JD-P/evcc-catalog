@@ -119,6 +119,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/home/web/prototype.jdpressman.com/static/'
 
 # What class schedule to use as base URL
 
