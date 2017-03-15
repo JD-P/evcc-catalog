@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.conf import settings
 
-
 from . import forms
 from . import search
 
@@ -22,7 +21,25 @@ def search_results(request):
         for result in results:
             # Temporarily just title + course_id for now,
             # will eventually include more fields.
-            outrows.append((result.title, result.course_id))
+            instructors = ";".join(join_related(result.instructors_set, "instructor"))
+            try:
+                requirements = ",".join(join_related(
+                    result.requirements_set,
+                    "requirement"))
+            except TypeError:
+                requirements = "N.A"
+            conditions = ",".join(join_related(result.conditions_set, "condition"))
+            outrows.append((result.course_id,
+                            result.title,
+                            instructors,
+                            requirements,
+                            conditions,
+                            result.section,
+                            result.credits,
+                            result.capacity,
+                            result.enrolled,
+                            result.location,
+                            result.start_end))
         return render(request,
                       'results.html',
                       {"outrows":outrows,
@@ -31,3 +48,11 @@ def search_results(request):
         return HttpResponse("Use a GET request, silly. :3")
         pass
     return 
+
+def join_related(related_set, attribute):
+    """Join related models which may have multiple elements into a single string 
+    for output."""
+    items_formatted = []
+    for item in related_set.all():
+        items_formatted.append(getattr(item, attribute))
+    return items_formatted

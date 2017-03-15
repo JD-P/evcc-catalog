@@ -8,12 +8,24 @@
       <thead>
 	<tr>
 	  <th>Title</th>
+	  <th>Instructors</th>
+	  <th>CredType</th>
+	  <th>Conditions/Icons</th>
+	  <th>Section</th>
+	  <th>Credits</th>
+	  <th>Capacity</th>
+	  <th>Enrolled</th>
+	  <th>Location</th>
+	  <th>Start &amp; End</th>
 	</tr>
       </thead>
       <tbody>
 	{% for row in outrows %}
 	<tr>
-	  <td><a href="{{ class_schedule_url }}#{{ row.1 }}">{{ row.0 }}</a></td>
+	  <td><a href="{{ class_schedule_url }}#{{ row.0 }}">{{ row.1 }}</a></td>
+	  {% for data in row|slice:"2:" %}
+	  <td>{{ data }}</td>
+	  {% endfor %}
 	</tr>
 	
 	{% endfor %}
