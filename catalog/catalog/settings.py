@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# What class schedule to use as base URL
+
+CLASS_SCHEDULE_URL = "https://www.everettcc.edu/classes/index.cfm?list=B674&dept=ALL&open=on&st=bas"

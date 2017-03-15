@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Unofficial EvCC Class Schedule Search Engine | Results</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <table>
+      <thead>
+	<tr>
+	  <th>Title</th>
+	</tr>
+      </thead>
+      <tbody>
+	{% for row in outrows %}
+	<tr>
+	  <td><a href="{{ class_schedule_url }}#{{ row.1 }}">{{ row.0 }}</a></td>
+	</tr>
+	
+	{% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
+
