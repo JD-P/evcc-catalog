@@ -1,6 +1,8 @@
 import sys
 import csv
+import html
 from argparse import ArgumentParser
+import bs4
 from bs4 import BeautifulSoup
 
 parser = ArgumentParser()
@@ -49,7 +51,16 @@ for pair in enumerate(course_row_pairs):
         course_credit_type="N.A"
 
     course_prereqs_raw = course_credit_description.find_next("p")
-    course_prereqs = course_prereqs_raw.contents
+    course_prereqs = " ".join([tag.text if type(tag) == bs4.Tag else tag
+                               for tag in course_prereqs_raw.contents])
+    course_prereqs = html.unescape(course_prereqs)
+    #if type(course_prereqs_raw.contents) == list:
+    #    course_prereqs = " ".join([tag.text for tag in
+    #                               course_prereqs_raw.contents])
+    #elif type(course_prereqs_raw.contents) == bs4.Tag:
+    #    course_prereqs = " ".join(course_prereqs_raw.text)
+    #else:
+    #    raise Exception
 
     course_details = course_info_table.find_next("tbody")
     course_id = course_details.find_next("td")
