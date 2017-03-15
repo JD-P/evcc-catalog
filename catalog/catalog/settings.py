@@ -25,7 +25,7 @@ SECRET_KEY = '&jhz--)nil7*aug9jsrdg(b*o)(!noq2+px3valj^$f@--bx%='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['catalog.jdpressman.com']
 
 
 # Application definition
