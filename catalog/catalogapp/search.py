@@ -1,17 +1,22 @@
 from catalogapp.models import *
 from django.db.models import Q
+from django.db.models import Max
 
 def simple_search_query(qstring):
+    # Grab only the latest version of the data
+    courses_current_date = Course.objects.all().aggregate(Max('course_date'))
+    courses = Course.objects.filter(course_date=courses_current_date['course_date__max'])
+    
     # Search title, description, instructors, location
     if qstring.get("multisearch"):
         search_parameter = qstring.get("multisearch")
-        courses = Course.objects.filter(
+        courses = courses.filter(
             Q(title__icontains=search_parameter) |
             Q(description__icontains=search_parameter) |
             Q(location__icontains=search_parameter) |
             Q(instructors__instructor__icontains=search_parameter))
     else:
-        courses = Course.objects
+        pass
 
     # Search days indicated by user
         
