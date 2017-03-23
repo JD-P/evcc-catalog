@@ -12,33 +12,77 @@
 	{{ form.multisearch }}
       </div>
       <div class="checkbox_sets">
-      <div class="dow">
-	{{ form.monday.label }} {{ form.monday }}
-	{{ form.tuesday.label }} {{ form.tuesday }}
-	{{ form.wednesday.label }} {{ form.wednesday }}
-	{{ form.thursday.label }} {{ form.thursday }}
-	{{ form.friday.label }} {{ form.friday }}
+	<div class="dow">
+	  <div class="checkbox">
+	    <label for="{{ form.monday.id_for_label }}">{{ form.monday.label }}</label> {{ form.monday }}
+	  </div>
+	<div class="checkbox">
+	  <label for="{{ form.tuesday.id_for_label }}">{{ form.tuesday.label }} </label> {{ form.tuesday }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.wednesday.id_for_label }}">{{ form.wednesday.label }}</label> {{ form.wednesday }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.thursday.id_for_label }}">{{ form.thursday.label }}</label> {{ form.thursday }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.friday.id_for_label }}">{{ form.friday.label }}</label> {{ form.friday }}
+	</div>
       </div>
       <div class="conditions">
-	{{ form.annual.label }} {{ form.annual }}
-	{{ form.ec.label }} {{ form.ec }}
-	{{ form.hybrid.label }} {{ form.hybrid }}
-	{{ form.honors.label }} {{ form.honors }}
-	{{ form.lc.label }} {{ form.lc }}
-	{{ form.online.label }} {{ form.online }}
-	{{ form.web_enhanced.label }} {{ form.web_enhanced }}
+	<div class="checkbox">
+	  <label for="{{ form.annual.id_for_label }}">{{ form.annual.label }}</label> {{ form.annual }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.ec.id_for_label }}">{{ form.ec.label }}</label> {{ form.ec }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.hybrid.id_for_label }}">{{ form.hybrid.label }}</label> {{ form.hybrid }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.honors.id_for_label }}">{{ form.honors.label }}</label> {{ form.honors }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.lc.id_for_label }}">{{ form.lc.label }}</label> {{ form.lc }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.online.id_for_label }}">{{ form.online.label }}</label> {{ form.online }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.web_enhanced.id_for_label }}">{{ form.web_enhanced.label }}</label> {{ form.web_enhanced }}
+	</div>
       </div>
       <div class="credit_requirements">
-	{{ form.aas.label }} {{ form.aas }}
-	{{ form.c.label }} {{ form.c }}
-	{{ form.ns.label }} {{ form.ns }}
-	{{ form.h.label }} {{ form.h }}
-	{{ form.hp.label }} {{ form.hp }}
-	{{ form.ss.label }} {{ form.ss }}
-	{{ form.ns_l.label }} {{ form.ns_l }}
-	{{ form.q.label }} {{ form.q }}
-	{{ form.te.label }} {{ form.te }}
-	{{ form.d.label }} {{ form.d }}
+	<div class="checkbox">
+	  <label for="{{ form.aas.id_for_label }}">{{ form.aas.label }}</label> {{ form.aas }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.c.id_for_label }}">{{ form.c.label }}</label> {{ form.c }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.ns.id_for_label }}">{{ form.ns.label }}</label> {{ form.ns }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.h.id_for_label }}">{{ form.h.label }}</label> {{ form.h }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.hp.id_for_label }}">{{ form.hp.label }}</label> {{ form.hp }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.ss.id_for_label }}">{{ form.ss.label }}</label> {{ form.ss }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.ns_l.id_for_label }}">{{ form.ns_l.label }}</label> {{ form.ns_l }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.q.id_for_label }}">{{ form.q.label }}</label> {{ form.q }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.te.id_for_label }}">{{ form.te.label }}</label> {{ form.te }}
+	</div>
+	<div class="checkbox">
+	  <label for="{{ form.d.id_for_label }}">{{ form.d.label }}</label> {{ form.d }}
+	</div>
       </div>
       </div>
       <input class="submit_button" type="submit" value="Submit" />
