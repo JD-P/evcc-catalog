@@ -11,6 +11,10 @@ input[type=text] {
   width:30em;
 }
 
+.panel_label {
+  padding-bottom: .25em;
+}
+
 .checkbox_sets {
   display: flex;
   flex-direction: row;
