@@ -49,6 +49,14 @@ def search_results(request):
         pass
     return 
 
+def legend(request):
+    if request.method == 'GET':
+        return render(request,
+                      'legend.html',
+                      {})
+    else:
+        return HttpResponse("Use a GET request, silly. :3")
+
 def join_related(related_set, attribute):
     """Join related models which may have multiple elements into a single string 
     for output."""

@@ -10,6 +10,8 @@ class SimpleSearchForm(forms.Form):
     wednesday = forms.BooleanField(label="Wednesday", required=False)
     thursday = forms.BooleanField(label="Thursday", required=False)
     friday = forms.BooleanField(label="Friday", required=False)
+    saturday = forms.BooleanField(label="Saturday", required=False)
+    sunday = forms.BooleanField(label="Sunday", required=False)
 
     # Search by special course conditions
     
