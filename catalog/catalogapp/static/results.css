@@ -6,3 +6,16 @@ td {
   border: black 1px solid;
   padding: 0.30em;
 }
+
+#outdated-warning {
+  margin: 0 auto;
+  width: 400px;
+  background-color: rgb(255,150,150);
+  text-align: center;
+  border: 1px black solid;
+}
+
+#outdated-warning p {
+  margin-left: 2px;
+  margin-right: 2px;
+}

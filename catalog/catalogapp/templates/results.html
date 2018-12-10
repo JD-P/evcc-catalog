@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
   </head>
   <body>
+     {% if outdated > 14 %}<div id="outdated-warning"><p>WARNING: <br> This version of the class schedule is {{ outdated }} days old. You should not rely on it to find classes in the current or next quarters.</p></div> {% endif %}
     <table>
       <thead>
 	<tr>

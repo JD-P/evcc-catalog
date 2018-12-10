@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&jhz--)nil7*aug9jsrdg(b*o)(!noq2+px3valj^$f@--bx%='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['catalog.jdpressman.com']
+ALLOWED_HOSTS = ['catalog.jdpressman.com', '127.0.0.1']
 
 
 # Application definition
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['catalog.jdpressman.com']
 INSTALLED_APPS = [
     'catalogapp.apps.CatalogappConfig',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -121,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/web/prototype.jdpressman.com/static/'
+STATIC_ROOT = 'static/'
 
 # What class schedule to use as base URL
 

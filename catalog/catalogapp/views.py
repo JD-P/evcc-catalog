@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.conf import settings
+import datetime
+import pdb
 
 from . import forms
 from . import search
@@ -18,6 +20,7 @@ def search_results(request):
     if request.method == 'GET':
         results = search.simple_search_query(request.GET)
         outrows = []
+        outdated = (datetime.date.today() - results[0].course_date).days
         for result in results:
             # Temporarily just title + course_id for now,
             # will eventually include more fields.
@@ -43,7 +46,8 @@ def search_results(request):
         return render(request,
                       'results.html',
                       {"outrows":outrows,
-                       "class_schedule_url":settings.CLASS_SCHEDULE_URL})
+                       "class_schedule_url":settings.CLASS_SCHEDULE_URL,
+                       "outdated":outdated})
     else:
         return HttpResponse("Use a GET request, silly. :3")
         pass
