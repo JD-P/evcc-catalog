@@ -3,8 +3,12 @@ table {
  } 
 
 td {
-  border: black 1px solid;
-  padding: 0.30em;
+  padding: 0.5em;
+  font-family: helvetica, sans-serif;
+}
+
+td a {
+  text-decoration: none;
 }
 
 #outdated-warning {
