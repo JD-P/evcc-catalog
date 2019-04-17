@@ -23,7 +23,7 @@
       </thead>
       <tbody>
 	{% for row in outrows %}
-	<tr>
+	<tr class="{% cycle 'white-row' 'gray-row' %}">
 	  <td><a href="{{ class_schedule_url }}#{{ row.0 }}">{{ row.1 }}</a></td>
 	  {% for data in row|slice:"2:" %}
 	  <td>{{ data }}</td>
