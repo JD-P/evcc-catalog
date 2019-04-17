@@ -11,6 +11,10 @@ td a {
   text-decoration: none;
 }
 
+.gray-row {
+  background-color: #dddddd;
+}
+
 #outdated-warning {
   margin: 0 auto;
   width: 400px;
